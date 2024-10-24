@@ -14,8 +14,6 @@ Expense::Expense(std::string expenseName, int expenseTypeCode, double expensePri
     this->expensePrice = expensePrice;
 }
 
-std::ostream& operator<<(std::ostream& os, const Expense& expense){
-    os << std::setw(30) << expense.expenseName << std::setw(15) << expenseTypes[expense.expenseTypeCode] << std::setw(8) << expense.expensePrice << std::endl;
-    return os;
-
+void Expense::displayExpense(){
+    std::cout << std::setw(30) << expenseName << std::setw(15) << expenseTypes[expenseTypeCode] << std::setw(8) << expensePrice << std::endl;
 }

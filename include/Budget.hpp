@@ -8,7 +8,7 @@ class Budget
 {
 private:
     double balance, savings;
-    std::vector<Expense> expenses;
+    std::vector<Expense> expenses; 
 public:
     Budget();
     Budget(double balance, double savings);
@@ -19,6 +19,8 @@ public:
     void setSavings(double savings);
     void addExpense();
     void displayExpenses();
+    void saveExpensesToFile(std::string filename);
+    void loadBalanceFromFile(std::string filename);
     ~Budget();
 };
 

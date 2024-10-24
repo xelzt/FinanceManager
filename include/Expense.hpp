@@ -9,13 +9,12 @@ extern std::map<int, std::string> expenseTypes;
 
 class Expense
 {
-private:
+public:
     std::string expenseName;
     int expenseTypeCode;
     double expensePrice;
-public:
     Expense(std::string expenseName, int expenseTypeCode, double expensePrice);
-    friend std::ostream& operator<<(std::ostream& os, const Expense& expense);
+    void displayExpense();
 };
 
 #endif

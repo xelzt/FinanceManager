@@ -25,6 +25,8 @@ void Menu::displayMainMenu(){
         std::cout << "2. Display savings balance" << std::endl;
         std::cout << "3. Add expense" << std::endl;
         std::cout << "4. Display expenses" << std::endl;
+        std::cout << "5. Save expenses to file" << std::endl;
+        std::cout << "6. Load expenses from file" << std::endl;
         std::cout << "q - Exit" << std::endl;
         std::cin >> option;
         std::cout << "\n\n";
@@ -41,6 +43,12 @@ void Menu::displayMainMenu(){
             break;
         case '4':
             bdt.displayExpenses();
+            break;
+        case '5':
+            bdt.saveExpensesToFile("expenses2.csv");
+            break;
+        case '6':
+            bdt.loadBalanceFromFile("expenses2.csv");
             break;
         case 'q':
             std::cout << "Exit" << std::endl;
