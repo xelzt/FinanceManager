@@ -26,10 +26,9 @@ void Menu::displayMainMenu(){
         std::cout << "3. Add expense" << std::endl;
         std::cout << "4. Display expenses" << std::endl;
         std::cout << "5. Save expenses to file" << std::endl;
-        std::cout << "6. Load expenses from file" << std::endl;
-        std::cout << "7. Add new savings asset" << std::endl;
-        std::cout << "8. Set account balance" << std::endl;
-        std::cout << "9. Add income to balance" << std::endl;
+        std::cout << "6. Add new savings asset" << std::endl;
+        std::cout << "7. Set account balance" << std::endl;
+        std::cout << "8. Add income to balance" << std::endl;
         std::cout << "q - Exit" << std::endl;
         std::cin >> option;
         std::cout << "\n\n";
@@ -50,18 +49,15 @@ void Menu::displayMainMenu(){
             bdt.displayExpenses();
             break;
         case '5':
-            bdt.saveExpensesToFile("expenses2.csv");
+            bdt.saveExpensesToFile();
             break;
         case '6':
-            bdt.loadBalanceFromFile("expenses2.csv");
-            break;
-        case '7':
             bdt.addNewSavingsAsset();
             break;
-        case '8':
+        case '7':
             bdt.setBalance();
             break;
-        case '9':
+        case '8':
             bdt.addIncomeToBalance();
             break;
         case 'q':

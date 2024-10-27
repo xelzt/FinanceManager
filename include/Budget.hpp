@@ -20,8 +20,8 @@ public:
     void addIncomeToBalance();
     void addExpense();
     void displayExpenses();
-    void saveExpensesToFile(std::string filename);
-    void loadBalanceFromFile(std::string filename);
+    void saveExpensesToFile();
+    void loadBalanceFromFile();
 
     // Savings Wallet operations
     void displaySavingsWalletdetails();

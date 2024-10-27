@@ -9,7 +9,7 @@
 Budget::Budget(){
     this->balance = 0;
     this->savings = SavingsWallet();
-    this->expenses = {};
+    this->loadBalanceFromFile();
 }
 
 Budget::Budget(double balance){
@@ -78,12 +78,12 @@ void Budget::displayExpenses(){
     
 }
 
-void Budget::loadBalanceFromFile(std::string filename){
-    std::ifstream fin(filename);
+void Budget::loadBalanceFromFile(){
+    std::ifstream fin("expenses.csv");
     std::string line, word;
 
     if(!fin.is_open()){
-        std::cerr << "Can't open file: " << filename << std::endl;
+        std::cerr << "Can't open file: expenses.csv" << std::endl;
         return;
     }
 
@@ -110,9 +110,9 @@ void Budget::loadBalanceFromFile(std::string filename){
     }
 }
 
-void Budget::saveExpensesToFile(std::string filename){
+void Budget::saveExpensesToFile(){
     std::ofstream myFile;
-    myFile.open(filename);
+    myFile.open("expenses.csv");
     for(Expense e : expenses){
         myFile << e.expenseID << "," << e.expenseName << "," << e.expenseTypeCode << "," << e.expensePrice << std::endl;
     }
