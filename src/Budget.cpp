@@ -2,18 +2,19 @@
 #include <iomanip>
 #include <fstream>
 #include <iostream>
+#include <string>
 
 #include "../include/Budget.hpp"
 
 Budget::Budget(){
     this->balance = 0;
-    this->savings = 0;
+    this->savings = SavingsWallet();
     this->expenses = {};
 }
 
-Budget::Budget(double balance, double savings){
+Budget::Budget(double balance){
     this->balance = balance;
-    this->savings = savings;
+    this->savings = SavingsWallet();
     this->expenses = {};
 }
 
@@ -23,10 +24,6 @@ Budget::~Budget(){
 
 double Budget::getBalance(){
     return this->balance;
-}
-
-double Budget::getSavings(){
-    return this->savings;
 }
 
 std::vector<Expense> Budget::getExpenses(){
@@ -51,14 +48,21 @@ void Budget::addExpense(){
     std::cin >> expensePrice;
 
     this->expenses.push_back(Expense(int(this->expenses.size()), expenseName, expenseTypeCode, expensePrice));
+    this->balance -= expensePrice;
 }
 
-void Budget::setBalance(double balance){
+void Budget::setBalance(){
+    double balance = 0;
+    std::cout << "Pass balance: ";
+    std::cin >> balance;
     this->balance = balance;
 }
 
-void Budget::setSavings(double savings){
-    this->savings = savings;
+void Budget::addIncomeToBalance(){
+    double income;
+    std::cout << "Pass amount of income: ";
+    std::cin >> income;
+    this->balance += income;
 }
 
 void Budget::displayExpenses(){
@@ -113,4 +117,22 @@ void Budget::saveExpensesToFile(std::string filename){
         myFile << e.expenseID << "," << e.expenseName << "," << e.expenseTypeCode << "," << e.expensePrice << std::endl;
     }
     myFile.close();
+}
+
+void Budget::displaySavingsWalletdetails(){
+    this->savings.displayReturnRate();
+    this->savings.displayAssets();
+}
+
+void Budget::addNewSavingsAsset(){
+    std::string assetName;
+    double startPrice, actualPrice;
+    std::cout << "Pass asset name: ";
+    std::cin >> assetName;
+    std::cout << "Pass asset start price: ";
+    std::cin >> startPrice;
+    std::cout << "Pass asset actual price: ";
+    std::cin >> actualPrice;
+
+    this->savings.addNewAsset(assetName, startPrice, actualPrice);
 }
