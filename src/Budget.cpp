@@ -50,7 +50,7 @@ void Budget::addExpense(){
     std::cout << "Pass expense price: ";
     std::cin >> expensePrice;
 
-    this->expenses.push_back(Expense(expenseName, expenseTypeCode, expensePrice));
+    this->expenses.push_back(Expense(int(this->expenses.size()), expenseName, expenseTypeCode, expensePrice));
 }
 
 void Budget::setBalance(double balance){
@@ -65,7 +65,7 @@ void Budget::displayExpenses(){
     if(this->expenses.size() == 0){
         std::cout << "No expenses to display!" << std::endl;
     }else{
-        std::cout << std::left << std::setw(30) << "Name" << std::setw(15) << "Type" << std::setw(8) << "Price" << std::endl;
+        std::cout << std::left << std::setw(4) << "ID" << std::setw(30) << "Name" << std::setw(15) << "Type" << std::setw(8) << "Price" << std::endl;
         std::cout << "-------------------------------------------------------" << std::endl;
         for(Expense e : expenses){
             e.displayExpense();
@@ -86,10 +86,13 @@ void Budget::loadBalanceFromFile(std::string filename){
     while (getline(fin ,line))
     {
         std::string expenseName;
-        int expenseTypeCode;
+        int expenseID, expenseTypeCode;
         double expensePrice;
         std::stringstream s(line);
         
+        getline(s, word, ',');
+        expenseID = std::stoi(word);
+
         getline(s, word, ',');
         expenseName = word;
 
@@ -99,7 +102,7 @@ void Budget::loadBalanceFromFile(std::string filename){
         getline(s, word, ',');
         expensePrice = std::stod(word);
 
-        this->expenses.emplace_back(expenseName, expenseTypeCode, expensePrice);
+        this->expenses.emplace_back(expenseID, expenseName, expenseTypeCode, expensePrice);
     }
 }
 
@@ -107,7 +110,7 @@ void Budget::saveExpensesToFile(std::string filename){
     std::ofstream myFile;
     myFile.open(filename);
     for(Expense e : expenses){
-        myFile << e.expenseName << "," << e.expenseTypeCode << "," << e.expensePrice << std::endl;
+        myFile << e.expenseID << "," << e.expenseName << "," << e.expenseTypeCode << "," << e.expensePrice << std::endl;
     }
     myFile.close();
 }
