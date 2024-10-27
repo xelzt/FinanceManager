@@ -2,25 +2,25 @@
 
 #include "Expense.hpp"
 #include "SavingsWallet.hpp"
+#include "BalanceWallet.hpp"
 #ifndef BUDGET_HPP
 #define BUDGET_HPP
 
 class Budget
 {
 private:
-    double balance;
+    BalanceWallet balanceWallet;
     SavingsWallet savings;
-    std::vector<Expense> expenses; 
 public:
     Budget();
-    double getBalance();
-    std::vector<Expense> getExpenses();
+    
+    // Balance Wallet operations
+    void displayBalanceWalletdetails();
+    void displayExpenses();
     void setBalance();
     void addIncomeToBalance();
     void addExpense();
-    void displayExpenses();
     void saveExpensesToFile();
-    void loadBalanceFromFile();
 
     // Savings Wallet operations
     void displaySavingsWalletdetails();

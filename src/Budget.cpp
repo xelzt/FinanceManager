@@ -6,22 +6,7 @@
 
 #include "../include/Budget.hpp"
 
-Budget::Budget(){
-    this->balance = 0;
-    this->loadBalanceFromFile();
-}
-
-Budget::~Budget(){
-
-}
-
-double Budget::getBalance(){
-    return this->balance;
-}
-
-std::vector<Expense> Budget::getExpenses(){
-    return this->expenses;
-}
+Budget::Budget(){}
 
 void Budget::addExpense(){
     std::string expenseName;
@@ -40,76 +25,29 @@ void Budget::addExpense(){
     std::cout << "Pass expense price: ";
     std::cin >> expensePrice;
 
-    this->expenses.push_back(Expense(int(this->expenses.size()), expenseName, expenseTypeCode, expensePrice));
-    this->balance -= expensePrice;
+    this->balanceWallet.addExpense(expenseName, expenseTypeCode, expensePrice);
 }
 
 void Budget::setBalance(){
     double balance = 0;
     std::cout << "Pass balance: ";
     std::cin >> balance;
-    this->balance = balance;
+    this->balanceWallet.setBalance(balance);
 }
 
 void Budget::addIncomeToBalance(){
     double income;
     std::cout << "Pass amount of income: ";
     std::cin >> income;
-    this->balance += income;
+    this->balanceWallet.addIncomeToBalance(income);
 }
 
 void Budget::displayExpenses(){
-    if(this->expenses.size() == 0){
-        std::cout << "No expenses to display!" << std::endl;
-    }else{
-        std::cout << std::left << std::setw(4) << "ID" << std::setw(30) << "Name" << std::setw(15) << "Type" << std::setw(8) << "Price" << std::endl;
-        std::cout << "-------------------------------------------------------" << std::endl;
-        for(Expense e : expenses){
-            e.displayExpense();
-        }
-    }
-    
-}
-
-void Budget::loadBalanceFromFile(){
-    std::ifstream fin("expenses.csv");
-    std::string line, word;
-
-    if(!fin.is_open()){
-        std::cerr << "Can't open file: expenses.csv" << std::endl;
-        return;
-    }
-
-    while (getline(fin ,line))
-    {
-        std::string expenseName;
-        int expenseID, expenseTypeCode;
-        double expensePrice;
-        std::stringstream s(line);
-        
-        getline(s, word, ',');
-        expenseID = std::stoi(word);
-
-        getline(s, word, ',');
-        expenseName = word;
-
-        getline(s, word, ',');
-        expenseTypeCode = std::stoi(word);
-
-        getline(s, word, ',');
-        expensePrice = std::stod(word);
-
-        this->expenses.emplace_back(expenseID, expenseName, expenseTypeCode, expensePrice);
-    }
+    this->balanceWallet.displayExpenses();
 }
 
 void Budget::saveExpensesToFile(){
-    std::ofstream myFile;
-    myFile.open("expenses.csv");
-    for(Expense e : expenses){
-        myFile << e.expenseID << "," << e.expenseName << "," << e.expenseTypeCode << "," << e.expensePrice << std::endl;
-    }
-    myFile.close();
+    this->balanceWallet.saveExpensesToFile();
 }
 
 void Budget::displaySavingsWalletdetails(){
@@ -134,4 +72,8 @@ void Budget::addNewSavingsAsset(){
 
 void Budget::saveSavingsWalletInfo(){
     this->savings.saveSavingsWalletDetails();
+}
+
+void Budget::displayBalanceWalletdetails(){
+    this->balanceWallet.displayDetailBalanceWalletInfo();
 }

@@ -36,7 +36,7 @@ void Menu::displayMainMenu(){
         switch (option)
         {
         case '1':
-            std::cout << "Account balance: " << bdt.getBalance() << std::endl;
+            bdt.displayBalanceWalletdetails();
             break;
         case '2':
             bdt.displaySavingsWalletdetails();

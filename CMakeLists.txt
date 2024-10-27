@@ -4,6 +4,7 @@ project(FinanceManager)
 
 set(SOURCES
     src/Budget.cpp
+    src/BalanceWallet.cpp
     src/SavingsWallet.cpp
     src/Asset.cpp
     src/Expense.cpp
