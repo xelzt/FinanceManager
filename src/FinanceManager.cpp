@@ -4,11 +4,11 @@
 #include <iostream>
 #include <string>
 
-#include "../include/Budget.hpp"
+#include "../include/FinanceManager.hpp"
 
-Budget::Budget(){}
+FinanceManager::FinanceManager(){}
 
-void Budget::addExpense(){
+void FinanceManager::addExpense(){
     std::string expenseName;
     int expenseTypeCode;
     double expensePrice;
@@ -28,36 +28,36 @@ void Budget::addExpense(){
     this->balanceWallet.addExpense(expenseName, expenseTypeCode, expensePrice);
 }
 
-void Budget::setBalance(){
+void FinanceManager::setBalance(){
     double balance = 0;
     std::cout << "Pass balance: ";
     std::cin >> balance;
     this->balanceWallet.setBalance(balance);
 }
 
-void Budget::addIncomeToBalance(){
+void FinanceManager::addIncomeToBalance(){
     double income;
     std::cout << "Pass amount of income: ";
     std::cin >> income;
     this->balanceWallet.addIncomeToBalance(income);
 }
 
-void Budget::displayExpenses(){
+void FinanceManager::displayExpenses(){
     this->balanceWallet.displayExpenses();
 }
 
-void Budget::saveExpensesToFile(){
+void FinanceManager::saveExpensesToFile(){
     this->balanceWallet.saveExpensesToFile();
 }
 
-void Budget::displaySavingsWalletdetails(){
+void FinanceManager::displaySavingsWalletdetails(){
     std::cout << "Savings details: " << std::endl;
     this->savings.displayReturnRate();
     this->savings.displayAssets();
     std::cout << std::endl;
 }
 
-void Budget::addNewSavingsAsset(){
+void FinanceManager::addNewSavingsAsset(){
     std::string assetName;
     double startPrice, actualPrice;
     std::cout << "Pass asset name: ";
@@ -70,10 +70,10 @@ void Budget::addNewSavingsAsset(){
     this->savings.addNewAsset(assetName, startPrice, actualPrice);
 }
 
-void Budget::saveSavingsWalletInfo(){
+void FinanceManager::saveSavingsWalletInfo(){
     this->savings.saveSavingsWalletDetails();
 }
 
-void Budget::displayBalanceWalletdetails(){
+void FinanceManager::displayBalanceWalletdetails(){
     this->balanceWallet.displayDetailBalanceWalletInfo();
 }

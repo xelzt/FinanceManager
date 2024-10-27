@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include "include/Budget.hpp"
 #include "include/Menu.hpp"
 
 int main(){

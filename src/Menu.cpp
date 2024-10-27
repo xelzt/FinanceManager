@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "../include/Menu.hpp"
-#include "../include/Budget.hpp"
+#include "../include/FinanceManager.hpp"
 #include "../include/Expense.hpp"
 
 Menu* Menu::menuInstance=nullptr;
@@ -36,31 +36,31 @@ void Menu::displayMainMenu(){
         switch (option)
         {
         case '1':
-            bdt.displayBalanceWalletdetails();
+            financeManager.displayBalanceWalletdetails();
             break;
         case '2':
-            bdt.displaySavingsWalletdetails();
+            financeManager.displaySavingsWalletdetails();
             break;
         case '3':
-            bdt.displayExpenses();
+            financeManager.displayExpenses();
             break;
         case '4':
-            bdt.setBalance();
+            financeManager.setBalance();
             break;
         case '5':
-            bdt.addIncomeToBalance();
+            financeManager.addIncomeToBalance();
             break;
         case '6':
-            bdt.addExpense();
+            financeManager.addExpense();
             break;
         case '7':
-            bdt.addNewSavingsAsset();
+            financeManager.addNewSavingsAsset();
             break;
         case '8':
-            bdt.saveExpensesToFile();
+            financeManager.saveExpensesToFile();
             break;
         case '9':
-            bdt.saveSavingsWalletInfo();
+            financeManager.saveSavingsWalletInfo();
             break;
         case 'q':
             std::cout << "Exit" << std::endl;

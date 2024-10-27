@@ -3,16 +3,16 @@
 #include "Expense.hpp"
 #include "SavingsWallet.hpp"
 #include "BalanceWallet.hpp"
-#ifndef BUDGET_HPP
-#define BUDGET_HPP
+#ifndef FINANCE_MANAGER_HPP
+#define FINANCE_MANAGER_HPP
 
-class Budget
+class FinanceManager
 {
 private:
     BalanceWallet balanceWallet;
     SavingsWallet savings;
 public:
-    Budget();
+    FinanceManager();
     
     // Balance Wallet operations
     void displayBalanceWalletdetails();
@@ -26,7 +26,6 @@ public:
     void displaySavingsWalletdetails();
     void addNewSavingsAsset();
     void saveSavingsWalletInfo();
-    ~Budget();
 };
 
 #endif 

@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.22.1)
 project(FinanceManager)
 
 set(SOURCES
-    src/Budget.cpp
+    src/FinanceManager.cpp
     src/BalanceWallet.cpp
     src/SavingsWallet.cpp
     src/Asset.cpp
