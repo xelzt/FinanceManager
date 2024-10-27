@@ -15,6 +15,7 @@ SavingsWallet::SavingsWallet(){
 void SavingsWallet::addNewAsset(std::string name, double startPrice, double actualPrice){
     this->assets.emplace_back(this->assets.size(), name, startPrice, actualPrice);
     this->calculateReturnRate();
+    this->balance += startPrice;
 }
 
 void SavingsWallet::displayAssets(){

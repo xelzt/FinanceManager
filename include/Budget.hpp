@@ -13,7 +13,6 @@ private:
     std::vector<Expense> expenses; 
 public:
     Budget();
-    // Budget(double balance);
     double getBalance();
     std::vector<Expense> getExpenses();
     void setBalance();

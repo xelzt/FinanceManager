@@ -11,12 +11,6 @@ Budget::Budget(){
     this->loadBalanceFromFile();
 }
 
-// Budget::Budget(double balance){
-//     this->balance = balance;
-//     this->savings = SavingsWallet();
-//     this->expenses = {};
-// }
-
 Budget::~Budget(){
 
 }
@@ -119,8 +113,10 @@ void Budget::saveExpensesToFile(){
 }
 
 void Budget::displaySavingsWalletdetails(){
+    std::cout << "Savings details: " << std::endl;
     this->savings.displayReturnRate();
     this->savings.displayAssets();
+    std::cout << std::endl;
 }
 
 void Budget::addNewSavingsAsset(){
