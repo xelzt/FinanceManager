@@ -41,6 +41,9 @@ void BalanceWallet::loadBalanceFromFile(){
         return;
     }
 
+    getline(fin ,line);
+    this->balance = std::stod(line);
+
     while (getline(fin ,line))
     {
         std::string expenseName;
@@ -67,6 +70,7 @@ void BalanceWallet::loadBalanceFromFile(){
 void BalanceWallet::saveExpensesToFile(){
     std::ofstream myFile;
     myFile.open("expenses.csv");
+    myFile << this->balance << "," << std::endl;
     for(Expense e : expenses){
         myFile << e.expenseID << "," << e.expenseName << "," << e.expenseTypeCode << "," << e.expensePrice << std::endl;
     }
