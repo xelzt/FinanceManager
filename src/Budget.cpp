@@ -8,15 +8,14 @@
 
 Budget::Budget(){
     this->balance = 0;
-    this->savings = SavingsWallet();
     this->loadBalanceFromFile();
 }
 
-Budget::Budget(double balance){
-    this->balance = balance;
-    this->savings = SavingsWallet();
-    this->expenses = {};
-}
+// Budget::Budget(double balance){
+//     this->balance = balance;
+//     this->savings = SavingsWallet();
+//     this->expenses = {};
+// }
 
 Budget::~Budget(){
 
@@ -135,4 +134,8 @@ void Budget::addNewSavingsAsset(){
     std::cin >> actualPrice;
 
     this->savings.addNewAsset(assetName, startPrice, actualPrice);
+}
+
+void Budget::saveSavingsWalletInfo(){
+    this->savings.saveSavingsWalletDetails();
 }

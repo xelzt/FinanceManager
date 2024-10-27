@@ -7,7 +7,7 @@ int main(){
 
     char option;
     bool runMenu = true;
-    Budget bdt = Budget();
+    // Budget bdt = Budget();
     Menu* menu = Menu::getInstance();
     menu->displayMainMenu();
 

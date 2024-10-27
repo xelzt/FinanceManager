@@ -12,3 +12,4 @@ In this form app support:
 - Load expenses from csv file
 - Display Savings Wallet details
 - Display expenses details
+- Save savings assets to file

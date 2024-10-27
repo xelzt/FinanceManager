@@ -29,6 +29,7 @@ void Menu::displayMainMenu(){
         std::cout << "6. Add new savings asset" << std::endl;
         std::cout << "7. Set account balance" << std::endl;
         std::cout << "8. Add income to balance" << std::endl;
+        std::cout << "9. Save savings assets" << std::endl;
         std::cout << "q - Exit" << std::endl;
         std::cin >> option;
         std::cout << "\n\n";
@@ -59,6 +60,9 @@ void Menu::displayMainMenu(){
             break;
         case '8':
             bdt.addIncomeToBalance();
+            break;
+        case '9':
+            bdt.saveSavingsWalletInfo();
             break;
         case 'q':
             std::cout << "Exit" << std::endl;

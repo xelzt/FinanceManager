@@ -13,7 +13,7 @@ private:
     std::vector<Expense> expenses; 
 public:
     Budget();
-    Budget(double balance);
+    // Budget(double balance);
     double getBalance();
     std::vector<Expense> getExpenses();
     void setBalance();
@@ -26,6 +26,7 @@ public:
     // Savings Wallet operations
     void displaySavingsWalletdetails();
     void addNewSavingsAsset();
+    void saveSavingsWalletInfo();
     ~Budget();
 };
 

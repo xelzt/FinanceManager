@@ -15,6 +15,8 @@ public:
     void addNewAsset(std::string name, double startPrice, double actualPrice);
     void displayAssets();
     void displayReturnRate();
+    void saveSavingsWalletDetails();
+    void loadSavingsWalletDetails();
 };
 
 #endif
