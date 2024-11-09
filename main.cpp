@@ -1,11 +1,9 @@
 #include <iostream>
 #include <string>
-#include "include/Menu.hpp"
+#include "include/MenuGUI.hpp"
+#ifndef WX_PRECOMP
+    #include <wx/wx.h>
+#endif
 
-int main(){
-
-    Menu* menu = Menu::getInstance();
-    menu->displayMainMenu();
-
-    return 0;
-}
+// HERE GOES WXWIDGETS MAIN
+wxIMPLEMENT_APP(FinanceManagerApp);
