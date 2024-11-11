@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 
 #include "Expense.hpp"
 
@@ -7,12 +8,9 @@
 
 class BalanceWallet
 {
-private:
+public:
     double balance;
     std::vector<Expense> expenses;
-
-
-public:
     BalanceWallet();
     void setBalance(double balance);
     void addIncomeToBalance(double incomeAmount);
@@ -20,7 +18,8 @@ public:
     void displayExpenses();
     void loadBalanceFromFile();
     void saveExpensesToFile();
-    void displayDetailBalanceWalletInfo();
+    std::string displayDetailBalanceWalletInfo();
+    double getBalance();
 };
 
 #endif

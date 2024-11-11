@@ -14,8 +14,16 @@ void Asset::calculateReturnRate(){
     this->returnRate = ((this->actualPrice - this->startPrice)/this->startPrice) * 100;
 }
 
-void Asset::displayAsset(){
-    std::cout << std::left << std::setw(4) << this->assetID << std::setw(30) << this->name << std::setw(15) << this->startPrice << std::setw(15) << this->actualPrice << std::setw(15) << this->returnRate << std::endl;
+std::string Asset::displayAsset() {
+    std::ostringstream oss;
+
+    oss << "ID: " << this->assetID << ", "
+        << "Name: " << this->name << ", "
+        << "Start Price: " << this->startPrice << ", "
+        << "Actual Price: " << this->actualPrice << ", "
+        << "Return Rate: " << this->returnRate << "%";
+
+    return oss.str();
 }
 
 void Asset::setActualPrice(double newPrice){

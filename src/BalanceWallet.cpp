@@ -77,6 +77,11 @@ void BalanceWallet::saveExpensesToFile(){
     myFile.close();
 }
 
-void BalanceWallet::displayDetailBalanceWalletInfo(){
-    std::cout << "Balance: " << this->balance << std::endl;
+std::string BalanceWallet::displayDetailBalanceWalletInfo(){
+    std::string message = "Balance: " + std::to_string(this->balance);
+    return message;
+}
+
+double BalanceWallet::getBalance(){
+    return this->balance;
 }

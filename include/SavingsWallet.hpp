@@ -6,14 +6,13 @@
 
 
 class SavingsWallet{
+public:
     double balance, returnRate;
     std::vector<Asset> assets;
     void calculateReturnRate();
-
-public:
     SavingsWallet();
     void addNewAsset(std::string name, double startPrice, double actualPrice);
-    void displayAssets();
+    std::string displayAssets();
     void displayReturnRate();
     void saveSavingsWalletDetails();
     void loadSavingsWalletDetails();

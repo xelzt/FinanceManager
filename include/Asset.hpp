@@ -11,7 +11,7 @@ public:
     int assetID;
     double startPrice, actualPrice, returnRate;
     Asset(int assetID, std::string name, double startPrice, double actualPrice);
-    void displayAsset();
+    std::string displayAsset();
     void setActualPrice(double newPrice);
 };
 

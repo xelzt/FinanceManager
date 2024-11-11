@@ -74,6 +74,10 @@ void FinanceManager::saveSavingsWalletInfo(){
     this->savings.saveSavingsWalletDetails();
 }
 
-void FinanceManager::displayBalanceWalletdetails(){
-    this->balanceWallet.displayDetailBalanceWalletInfo();
+std::string FinanceManager::displayBalanceWalletdetails(){
+    return this->balanceWallet.displayDetailBalanceWalletInfo();
+}
+
+double FinanceManager::getBalanceWalletAmountOfMoney(){
+    return this->balanceWallet.getBalance();
 }

@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 
 #include "Expense.hpp"
 #include "SavingsWallet.hpp"
@@ -8,14 +9,13 @@
 
 class FinanceManager
 {
-private:
+public:
     BalanceWallet balanceWallet;
     SavingsWallet savings;
-public:
     FinanceManager();
     
     // Balance Wallet operations
-    void displayBalanceWalletdetails();
+    std::string displayBalanceWalletdetails();
     void displayExpenses();
     void setBalance();
     void addIncomeToBalance();
@@ -26,6 +26,9 @@ public:
     void displaySavingsWalletdetails();
     void addNewSavingsAsset();
     void saveSavingsWalletInfo();
+
+    // Balance Wallet GUI Menu Options
+    double getBalanceWalletAmountOfMoney();
 };
 
 #endif 

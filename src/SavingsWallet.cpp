@@ -18,17 +18,24 @@ void SavingsWallet::addNewAsset(std::string name, double startPrice, double actu
     this->balance += startPrice;
 }
 
-void SavingsWallet::displayAssets(){
-    if (this->assets.size() == 0){
-        std::cout << "No savings assets to display" << std::endl;
-    }else{
-        std::cout << std::left << std::setw(4) << "ID" << std::setw(30) << "Name" << std::setw(15) << "Start Price" << std::setw(15) << "Actual Price" << std::setw(15) << "Return rate (%)" << std::endl;
-        std::cout << "-----------------------------------------------------------------------------" << std::endl;
-        for(Asset a : this->assets){
-            a.displayAsset();
+
+std::string SavingsWallet::displayAssets() {
+    std::ostringstream oss;  // Tworzenie obiektu ostringstream
+
+    if (this->assets.empty()) {
+        oss << "No savings assets to display" << std::endl;
+    } else {
+        // Nagłówki kolumn
+        oss << "ID | Name | Start Price | Actual Price | Return Rate (%)" << std::endl;
+        oss << "--------------------------------------------------------" << std::endl;
+
+        // Dodawanie informacji o aktywach do strumienia
+        for (Asset a : this->assets) {
+            oss << a.displayAsset() << std::endl;  // Dodawanie danych aktywów
         }
     }
 
+    return oss.str();  // Zwracanie sformatowanego ciągu znaków
 }
 
 void SavingsWallet::displayReturnRate(){
