@@ -5,7 +5,18 @@
 
 std::map<int, std::string> expenseTypes = {
     {1, "food"},
-    {2, "transport"}
+    {2, "bills"},
+    {3, "transport"},
+    {4, "healthcare"},
+    {5, "clothes"},
+    {6, "hygiene"},
+    {7, "household"},
+    {8, "entertainment"},
+    {9, "training"},
+    {10, "fuel"},
+    {11, "car"},
+    {12, "food - order"},
+    {13, "other expenses"}
 };
 
 Expense::Expense(int expenseID, std::string expenseName, int expenseTypeCode, double expensePrice){

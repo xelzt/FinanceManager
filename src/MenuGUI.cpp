@@ -244,6 +244,8 @@ void FinanceManagerFrame::OnAddExpenseAction(wxCommandEvent& event)
     expensePrice.ToDouble(&expensePriceCasted);
 
     this->financeManager.balanceWallet.addExpense(expenseNameCasted, expenseTypeCode, expensePriceCasted);
+
+    wxMessageBox("Expense added", "Add expense", wxOK | wxICON_INFORMATION);
 }
 
 void FinanceManagerFrame::OnAddSavingsAssetClicked(wxCommandEvent& event)
@@ -288,7 +290,7 @@ void FinanceManagerFrame::OnAddSavingAssetAction(wxCommandEvent& event)
     actualPrice.ToDouble(&actualPriceCasted);
 
     this->financeManager.savings.addNewAsset(assetNameCasted, startPriceCasted, actualPriceCasted);
-    
+    wxMessageBox("Saving asset added", "Add saving asset", wxOK | wxICON_INFORMATION);
 }
 
 void FinanceManagerFrame::OnSaveExpensesClicked(wxCommandEvent& event)
